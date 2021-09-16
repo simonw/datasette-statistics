@@ -8,10 +8,10 @@ def build_aggregate(fn):
             self.values = []
 
         def step(self, value):
-            self.values.append(value)
+            self.values.append(float(value))
 
         def finalize(self):
-            return fn(self.values)
+            return float(fn(self.values))
 
     return Aggregate
 

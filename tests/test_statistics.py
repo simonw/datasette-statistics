@@ -10,7 +10,7 @@ async def db():
 
     def setup(conn):
         sqlite_utils.Database(conn)["numbers"].insert_all(
-            {"integers": i, "floats": float(i)}
+            {"integers": i, "floats": float(i), "strings": str(i)}
             for i in [10, 10, 11, 12, 13, 14, 15, 15, 15]
         )
 
@@ -28,5 +28,6 @@ async def db():
     ),
 )
 async def test_statistic_functions(db, function, expected):
-    result = await db.execute("select {}(integers) from numbers".format(function))
-    assert result.single_value() == expected
+    for column in ("integers", "floats", "strings"):
+        result = await db.execute("select {}({}) from numbers".format(function, column))
+        assert result.single_value() == expected
