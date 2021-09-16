@@ -15,7 +15,17 @@ Install this plugin in the same environment as Datasette.
 
 ## Usage
 
-Usage instructions go here.
+This plugin adds three new SQL aggregate functions for use within Datasette:
+
+- `statistics_mean()` for calculating the mean
+- `statistics_median()` for calculating the median
+- `statistics_mode()` for calculating the mode
+
+All three use the implementations from the [Python statistics library](https://docs.python.org/3/library/statistics.html).
+
+Use them like this:
+
+    select statistics_mean(numeric_column) from mytable
 
 ## Development
 

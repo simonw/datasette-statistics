@@ -29,7 +29,7 @@ setup(
     packages=["datasette_statistics"],
     entry_points={"datasette": ["statistics = datasette_statistics"]},
     install_requires=["datasette"],
-    extras_require={"test": ["pytest", "pytest-asyncio"]},
+    extras_require={"test": ["pytest", "pytest-asyncio", "sqlite-utils"]},
     tests_require=["datasette-statistics[test]"],
     python_requires=">=3.6",
 )
