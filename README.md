@@ -1,26 +1,38 @@
-# Template repository for creating new Datasette plugins
+# datasette-statistics
 
-This GitHub [template repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-repository-from-a-template) can be used to create a new repository with the skeleton of a Datasette plugin, based on the [datasette-plugin](https://github.com/simonw/datasette-plugin) cookiecutter.
+[![PyPI](https://img.shields.io/pypi/v/datasette-statistics.svg)](https://pypi.org/project/datasette-statistics/)
+[![Changelog](https://img.shields.io/github/v/release/simonw/datasette-statistics?include_prereleases&label=changelog)](https://github.com/simonw/datasette-statistics/releases)
+[![Tests](https://github.com/simonw/datasette-statistics/workflows/Test/badge.svg)](https://github.com/simonw/datasette-statistics/actions?query=workflow%3ATest)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/simonw/datasette-statistics/blob/main/LICENSE)
 
-Start here: https://github.com/simonw/datasette-plugin-template-repository/generate
+SQL statistics functions for Datasette
 
-Call your new repository `datasette-something` - where the `something' describes your new plugin. You can use additional hyphens - examples of valid plugin repository names include:
+## Installation
 
-- `datasette-places-on-a-map`
-- `datasette-emoji`
+Install this plugin in the same environment as Datasette.
 
-Add a one-line description of your repository, then click "Create repository from template".
+    $ datasette install datasette-statistics
 
-![Screenshot of the create repository form](https://user-images.githubusercontent.com/9599/131229113-76b3d853-44d2-4ea2-8e29-9b09398b885f.png)
+## Usage
 
-Once created, your new repository will execute a GitHub Actions workflow that uses cookiecutter to rewrite the repository to the desired state. This make take 30 seconds or so.
+Usage instructions go here.
 
-You can see an example of a repository generated using this template here:
+## Development
 
-- https://github.com/simonw/datasette-plugin-template-repository-demo
+To set up this plugin locally, first checkout the code. Then create a new virtual environment:
 
-## Enabling workflows in your new repository
+    cd datasette-statistics
+    python3 -mvenv venv
+    source venv/bin/activate
 
-GitHub Actions like this are not allowed to create new workflows themselves.
+Or if you are using `pipenv`:
 
-Your new repository will have a folder in it called `.github/rename-this-to-workflows` - rename that folder to `.github/workflows` to enable the `test.yml` and `publish.yml` workflows, which can then run tests for your plugin and publish new GitHub releases to PyPI, as [described here](https://github.com/simonw/datasette-plugin#publishing-your-plugin-as-a-package-to-pypi).
+    pipenv shell
+
+Now install the dependencies and test dependencies:
+
+    pip install -e '.[test]'
+
+To run the tests:
+
+    pytest
