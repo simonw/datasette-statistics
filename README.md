@@ -15,7 +15,7 @@ Install this plugin in the same environment as Datasette.
 
 ## Usage
 
-This plugin adds three new SQL aggregate functions for use within Datasette:
+This plugin adds new SQL aggregate functions for use within Datasette:
 
 - `statistics_mean()` for calculating the [mean](https://docs.python.org/3/library/statistics.html#statistics.mean)
 - `statistics_geometric_mean()` for calculating the [geometric mean](https://docs.python.org/3/library/statistics.html#statistics.geometric_mean) (requires Python 3.8+)
@@ -28,7 +28,7 @@ This plugin adds three new SQL aggregate functions for use within Datasette:
 - `statistics_variance()` for calculating the [sample variance](https://docs.python.org/3/library/statistics.html#statistics.variance)
 - `statistics_pvariance()` for calculating the [population variance](https://docs.python.org/3/library/statistics.html#statistics.pvariance)
 
-All three use the implementations from the [Python statistics library](https://docs.python.org/3/library/statistics.html).
+These all use the implementations from the [Python statistics library](https://docs.python.org/3/library/statistics.html).
 
 Use them like this:
 
