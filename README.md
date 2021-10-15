@@ -18,7 +18,7 @@ Install this plugin in the same environment as Datasette.
 This plugin adds three new SQL aggregate functions for use within Datasette:
 
 - `statistics_mean()` for calculating the [mean](https://docs.python.org/3/library/statistics.html#statistics.mean)
-- `statistics_geometric_mean()` for calculating the [geometric mean](https://docs.python.org/3/library/statistics.html#statistics.geometric_mean)
+- `statistics_geometric_mean()` for calculating the [geometric mean](https://docs.python.org/3/library/statistics.html#statistics.geometric_mean) (requires Python 3.8+)
 - `statistics_median()` for calculating the [median](https://docs.python.org/3/library/statistics.html#statistics.median)
 - `statistics_median_low()` for calculating the [low median](https://docs.python.org/3/library/statistics.html#statistics.median_low)
 - `statistics_median_high()` for calculating the [high median](https://docs.python.org/3/library/statistics.html#statistics.median_high)
