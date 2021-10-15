@@ -24,7 +24,14 @@ async def db():
     (
         ("statistics_mean", pytest.approx(12.777777777777779)),
         ("statistics_median", pytest.approx(13.0)),
+        ("statistics_median_low", pytest.approx(13.0)),
+        ("statistics_median_high", pytest.approx(13.0)),
         ("statistics_mode", 15),
+        ("statistics_geometric_mean", pytest.approx(12.618014167807255)),
+        ("statistics_stdev", pytest.approx(2.003581)),
+        ("statistics_pstdev", pytest.approx(1.987615979999813)),
+        ("statistics_variance", pytest.approx(4.0)),
+        ("statistics_pvariance", pytest.approx(3.950617283950617)),
     ),
 )
 async def test_statistic_functions(db, function, expected):
