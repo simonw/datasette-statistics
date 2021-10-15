@@ -1,5 +1,7 @@
-from datasette import hookimpl
 import statistics
+import sys
+
+from datasette import hookimpl
 
 
 def build_aggregate(fn):
@@ -27,6 +29,10 @@ def prepare_connection(conn):
         "statistics_median_high", 1, build_aggregate(statistics.median_high)
     )
     conn.create_aggregate("statistics_mode", 1, build_aggregate(statistics.mode))
+    if sys.version_info[:2] >= (3, 8):
+        conn.create_aggregate(
+            "statistics_geometric_mean", 1, build_aggregate(statistics.geometric_mean)
+        )
     conn.create_aggregate("statistics_stdev", 1, build_aggregate(statistics.stdev))
     conn.create_aggregate("statistics_pstdev", 1, build_aggregate(statistics.pstdev))
     conn.create_aggregate(

@@ -1,3 +1,5 @@
+import sys
+
 from datasette.app import Datasette
 import pytest
 import sqlite_utils
@@ -34,6 +36,9 @@ async def db():
     ),
 )
 async def test_statistic_functions(db, function, expected):
+    if function == "statistics_geometric_mean" and sys.version_info[:2] < (3, 8):
+        return
+
     for column in ("integers", "floats", "strings"):
         result = await db.execute("select {}({}) from numbers".format(function, column))
         assert result.single_value() == expected
