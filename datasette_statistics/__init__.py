@@ -30,12 +30,8 @@ def prepare_connection(conn):
     conn.create_aggregate(
         "statistics_geometric_mean", 1, build_aggregate(statistics.geometric_mean)
     )
-    conn.create_aggregate(
-        "statistics_stdev", 1, build_aggregate(statistics.stdev)
-    )
-    conn.create_aggregate(
-        "statistics_pstdev", 1, build_aggregate(statistics.pstdev)
-    )
+    conn.create_aggregate("statistics_stdev", 1, build_aggregate(statistics.stdev))
+    conn.create_aggregate("statistics_pstdev", 1, build_aggregate(statistics.pstdev))
     conn.create_aggregate(
         "statistics_variance", 1, build_aggregate(statistics.variance)
     )
