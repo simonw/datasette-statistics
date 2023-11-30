@@ -10,9 +10,9 @@ SQL statistics functions for Datasette
 ## Installation
 
 Install this plugin in the same environment as Datasette.
-
-    $ datasette install datasette-statistics
-
+```bash
+datasette install datasette-statistics
+```
 ## Usage
 
 This plugin adds new SQL aggregate functions for use within Datasette:
@@ -31,25 +31,26 @@ This plugin adds new SQL aggregate functions for use within Datasette:
 These all use the implementations from the [Python statistics library](https://docs.python.org/3/library/statistics.html).
 
 Use them like this:
-
-    select statistics_mean(numeric_column) from mytable
-
+```sql
+select statistics_mean(numeric_column) from mytable
+```
 ## Development
 
 To set up this plugin locally, first checkout the code. Then create a new virtual environment:
-
-    cd datasette-statistics
-    python3 -mvenv venv
-    source venv/bin/activate
-
+```bash
+cd datasette-statistics
+python3 -mvenv venv
+source venv/bin/activate
+```
 Or if you are using `pipenv`:
-
-    pipenv shell
-
+```bash
+pipenv shell
+```
 Now install the dependencies and test dependencies:
-
-    pip install -e '.[test]'
-
+```bash
+pip install -e '.[test]'
+```
 To run the tests:
-
-    pytest
+```bash
+pytest
+```
