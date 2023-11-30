@@ -1,0 +1,22 @@
+[project]
+name = "datasette-statistics"
+version = "0.2"
+description = "SQL statistics functions for Datasette"
+readme = "README.md"
+authors = [{name = "Simon Willison"}]
+license = {text = "Apache License, Version 2.0"}
+requires-python = ">=3.6"
+dependencies = ["datasette"]
+
+[project.urls]
+Homepage = "https://github.com/simonw/datasette-statistics"
+Changelog = "https://github.com/simonw/datasette-statistics/releases"
+Issues = "https://github.com/simonw/datasette-statistics/issues"
+CI = "https://github.com/simonw/datasette-statistics/actions"
+
+[project.entry-points.datasette]
+statistics = "datasette_statistics"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-asyncio", "pytest-mock", "sqlite-utils"]
+
