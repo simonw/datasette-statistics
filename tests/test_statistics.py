@@ -2,10 +2,11 @@ import sys
 
 from datasette.app import Datasette
 import pytest
+import pytest_asyncio
 import sqlite_utils
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def db():
     datasette = Datasette([], memory=True)
     db = datasette.add_memory_database("test")
