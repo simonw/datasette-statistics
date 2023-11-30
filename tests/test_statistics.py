@@ -32,6 +32,8 @@ async def db():
         ("statistics_mode", 15),
         ("statistics_pstdev", pytest.approx(1.987615979999813)),
         ("statistics_pvariance", pytest.approx(3.950617283950617)),
+        ("statistics_stdev", pytest.approx(2.0015643334421376)),
+        ("statistics_variance", pytest.approx(4.0)),
     ),
 )
 async def test_statistic_functions(db, function, expected):
@@ -41,14 +43,3 @@ async def test_statistic_functions(db, function, expected):
     for column in ("integers", "floats", "strings"):
         result = await db.execute("select {}({}) from numbers".format(function, column))
         assert result.single_value() == expected
-
-
-@pytest.mark.asyncio
-@pytest.mark.parametrize("name", ("stdev", "variance"))
-async def test_statistic_functions_using_stubs(db, mocker, name):
-    # These two functions return very slightly different results on
-    # Python 3.6, so we test they ae stubbed correctly instead
-    patched = mocker.patch("statistics.{}".format(name))
-    assert not patched.called
-    await db.execute("select statistics_{}(integers) from numbers".format(name))
-    assert patched.called
